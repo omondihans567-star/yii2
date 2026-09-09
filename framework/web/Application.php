@@ -1,4 +1,24 @@
-<?php
+>?php
+// In your config file (e.g., config/web.php or config/main.php)
+return [
+    'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'your-smtp-server.com',
+                'username' => 'correct_username@yourdomain.com', // Use actual sender
+                'password' => 'your_password',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => ['correct_sender@yourdomain.com' => 'Your Name']
+            ],
+        ],
+    ],
+];
 
 /**
  * @link https://www.yiiframework.com/
